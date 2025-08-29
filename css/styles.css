@@ -1,0 +1,104 @@
+/* Custom styles for enhanced interactions */
+
+.todo-item {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.todo-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.filter-btn {
+    position: relative;
+    color: #6b7280;
+}
+
+.filter-btn.active {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    color: white;
+    box-shadow: 0 4px 14px 0 rgba(99, 102, 241, 0.3);
+}
+
+.filter-btn:not(.active):hover {
+    background-color: #f3f4f6;
+    color: #374151;
+}
+
+.toggle-btn:hover {
+    transform: scale(1.1);
+}
+
+.edit-btn:hover,
+.delete-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Loading animation for new todos */
+@keyframes slideInFromTop {
+    0% {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.todo-item.new {
+    animation: slideInFromTop 0.4s ease-out;
+}
+
+/* Completion animation */
+.todo-item.completing {
+    animation: bounceIn 0.6s ease-out;
+}
+
+/* Focus styles */
+input:focus,
+button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    .todo-item {
+        padding: 1rem;
+    }
+    
+    .filter-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    body {
+        background: linear-gradient(135deg, #1e293b, #334155);
+    }
+    
+    .bg-white {
+        background-color: #334155 !important;
+        color: white;
+    }
+    
+    .text-gray-800 {
+        color: #f1f5f9 !important;
+    }
+    
+    .text-gray-600 {
+        color: #cbd5e1 !important;
+    }
+    
+    .border-gray-200 {
+        border-color: #475569 !important;
+    }
+}
